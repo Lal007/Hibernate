@@ -21,7 +21,7 @@ public class StudentRepository {
     }
 
     public boolean removeStudentById(int id) {
-        Transaction transaction = null;
+        Transaction transaction;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
             Query query = session.createQuery("delete Student where id = :id");
